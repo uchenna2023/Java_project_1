@@ -30,7 +30,7 @@ public class ProjectOne {
             Scanner scanner = new Scanner(System.in)){
 
             int i = 0;
-            while(i < 2){
+            while(i < 10){
 
                 System.out.println("Please enter your name");
                 String nameCol = scanner.next();
