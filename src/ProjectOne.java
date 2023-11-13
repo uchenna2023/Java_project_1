@@ -3,9 +3,9 @@ import java.sql.*;
 import java.util.Scanner;
 
 public class ProjectOne {
-    private static int count;
+    private  int count;
 
-    public static int getCount() {
+    public int getCount() {
         return count;
     }
 
@@ -23,7 +23,7 @@ public class ProjectOne {
         }
     }
 
-    public static int populateTable(String url, String userName, String passWord){
+    public int populateTable(String url, String userName, String passWord){
 
         try(Connection connection = DriverManager.getConnection(url, userName, passWord);
             PreparedStatement preparedStatement = connection.prepareStatement("INSERT INTO student(Name, Email, Age, Location, Designation) VALUES(?,?,?,?,?)");
@@ -31,7 +31,6 @@ public class ProjectOne {
 
             int i = 0;
             while(i < 10){
-
                 System.out.println("Please enter your name");
                 String nameCol = scanner.next();
                 preparedStatement.setString(1,nameCol);
@@ -39,7 +38,7 @@ public class ProjectOne {
                 String email = scanner.next();
                 preparedStatement.setString(2,email);
                 System.out.println("Please enter your Age");
-                Integer age = scanner.nextInt();
+                int age = scanner.nextInt();
                 preparedStatement.setInt(3,age);
                 System.out.println("Please enter your Location");
                 String userLoc = scanner.next();
@@ -64,8 +63,9 @@ public class ProjectOne {
 
 class App{
     public static void main(String[] args) {
+        ProjectOne projectOne = new ProjectOne();
         ProjectOne.createTable("jdbc:mysql://localhost:3306/project_one","root","1987uche...");
-        ProjectOne.populateTable("jdbc:mysql://localhost:3306/project_one","root","1987uche...");
+        projectOne.populateTable("jdbc:mysql://localhost:3306/project_one","root","1987uche...");
 
     }
 }
