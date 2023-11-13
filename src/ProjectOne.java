@@ -32,19 +32,20 @@ public class ProjectOne {
             int i = 0;
             while(i < 10){
                 System.out.println("Please enter your name");
-                String nameCol = scanner.next();
+                String nameCol = scanner.nextLine();
                 preparedStatement.setString(1,nameCol);
                 System.out.println("Please enter your email");
-                String email = scanner.next();
+                String email = scanner.nextLine();
                 preparedStatement.setString(2,email);
                 System.out.println("Please enter your Age");
                 int age = scanner.nextInt();
+                scanner.nextLine();
                 preparedStatement.setInt(3,age);
                 System.out.println("Please enter your Location");
-                String userLoc = scanner.next();
+                String userLoc = scanner.nextLine();
                 preparedStatement.setString(4,userLoc);
                 System.out.println("Please enter your Designation");
-                String desg = scanner.next();
+                String desg = scanner.nextLine();
                 preparedStatement.setString(5,desg);
                 preparedStatement.execute();
                 i++;
